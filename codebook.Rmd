@@ -1,0 +1,134 @@
+---
+title: "Cleaning and Tidying Human Activity Recognition Dataset"
+author: "CM Chow (Cherry)"
+date: "2025-12-04"
+purpose: "To merge training and test datasets, extract mean and standard deviation measurements, label activities descriptively, and create a tidy dataset with averages for each subject and activity."
+output: "clean_data.csv — tidy dataset with averages"
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data Sources
+
+Files used: -test/subject_test.txt → Subject IDs for test set
+-test/y_test.txt → Activity codes for test set -test/X_test.txt →
+Feature measurements for test set -train/subject_train.txt → Subject IDs
+for training set -train/y_train.txt → Activity codes for training set
+-train/X_train.txt → Feature measurements for training set -features.txt
+→ List of feature names -activity_labels.txt → Mapping of activity codes
+to descriptive names
+
+## Data Cleaning Steps
+
+1.  Merge datasets: Combine test and train sets into one dataset.
+2.  Extract variables: Keep only measurements with mean or std.
+3.  Add descriptive activity names: Replace numeric activity codes with
+    labels (e.g., WALKING, SITTING).
+4.  Rename variables: o Remove parentheses () o Replace mean → MeanValue
+    o Replace std → StdDev o Replace - → \_ o Append \_axis to
+    measurement variables
+5.  Create tidy dataset: Average each variable grouped by subject and
+    activity.
+
+## Variable Descriptions
+
+## 📘 Variable Descriptions
+
+| Variable | Description |
+|----|----|
+| subject | Identifier for the person (integer ID) |
+| activity_name | Descriptive activity name (e.g., WALKING, STANDING, LAYING) |
+| tBodyAcc_MeanValue_X_axis | Mean of body acceleration signal in X direction (time domain, 50 Hz) |
+| tBodyAcc_MeanValue_Y_axis | Mean of body acceleration signal in Y direction (time domain, 50 Hz) |
+| tBodyAcc_MeanValue_Z_axis | Mean of body acceleration signal in Z direction (time domain, 50 Hz) |
+| tBodyAcc_StdDev_X_axis | Standard deviation of body acceleration signal in X direction |
+| tBodyAcc_StdDev_Y_axis | Standard deviation of body acceleration signal in Y direction |
+| tBodyAcc_StdDev_Z_axis | Standard deviation of body acceleration signal in Z direction |
+| tGravityAcc_MeanValue_X_axis | Mean of gravity acceleration signal in X direction (low-pass filtered at 0.3 Hz) |
+| tGravityAcc_MeanValue_Y_axis | Mean of gravity acceleration signal in Y direction (low-pass filtered at 0.3 Hz) |
+| tGravityAcc_MeanValue_Z_axis | Mean of gravity acceleration signal in Z direction (low-pass filtered at 0.3 Hz) |
+| tGravityAcc_StdDev_X_axis | Standard deviation of gravity acceleration signal in X direction |
+| tGravityAcc_StdDev_Y_axis | Standard deviation of gravity acceleration signal in Y direction |
+| tGravityAcc_StdDev_Z_axis | Standard deviation of gravity acceleration signal in Z direction |
+| tBodyAccJerk_MeanValue_X_axis | Mean of body linear acceleration Jerk signal in X direction |
+| tBodyAccJerk_MeanValue_Y_axis | Mean of body linear acceleration Jerk signal in Y direction |
+| tBodyAccJerk_MeanValue_Z_axis | Mean of body linear acceleration Jerk signal in Z direction |
+| tBodyAccJerk_StdDev_X_axis | Standard deviation of body linear acceleration Jerk signal in X direction |
+| tBodyAccJerk_StdDev_Y_axis | Standard deviation of body linear acceleration Jerk signal in Y direction |
+| tBodyAccJerk_StdDev_Z_axis | Standard deviation of body linear acceleration Jerk signal in Z direction |
+| tBodyGyro_MeanValue_X_axis | Mean of body angular velocity (gyroscope) in X direction |
+| tBodyGyro_MeanValue_Y_axis | Mean of body angular velocity (gyroscope) in Y direction |
+| tBodyGyro_MeanValue_Z_axis | Mean of body angular velocity (gyroscope) in Z direction |
+| tBodyGyro_StdDev_X_axis | Standard deviation of body angular velocity in X direction |
+| tBodyGyro_StdDev_Y_axis | Standard deviation of body angular velocity in Y direction |
+| tBodyGyro_StdDev_Z_axis | Standard deviation of body angular velocity in Z direction |
+| tBodyGyroJerk_MeanValue_X_axis | Mean of body angular velocity Jerk signal in X direction |
+| tBodyGyroJerk_MeanValue_Y_axis | Mean of body angular velocity Jerk signal in Y direction |
+| tBodyGyroJerk_MeanValue_Z_axis | Mean of body angular velocity Jerk signal in Z direction |
+| tBodyGyroJerk_StdDev_X_axis | Standard deviation of body angular velocity Jerk signal in X direction |
+| tBodyGyroJerk_StdDev_Y_axis | Standard deviation of body angular velocity Jerk signal in Y direction |
+| tBodyGyroJerk_StdDev_Z_axis | Standard deviation of body angular velocity Jerk signal in Z direction |
+| tBodyAccMag_MeanValue | Mean magnitude of body acceleration signal (Euclidean norm) |
+| tBodyAccMag_StdDev | Standard deviation of body acceleration magnitude |
+| tGravityAccMag_MeanValue | Mean magnitude of gravity acceleration signal |
+| tGravityAccMag_StdDev | Standard deviation of gravity acceleration magnitude |
+| tBodyAccJerkMag_MeanValue | Mean magnitude of body acceleration Jerk signal |
+| tBodyAccJerkMag_StdDev | Standard deviation of body acceleration Jerk magnitude |
+| tBodyGyroMag_MeanValue | Mean magnitude of body angular velocity signal |
+| tBodyGyroMag_StdDev | Standard deviation of body angular velocity magnitude |
+| tBodyGyroJerkMag_MeanValue | Mean magnitude of body angular velocity Jerk signal |
+| tBodyGyroJerkMag_StdDev | Standard deviation of body angular velocity Jerk magnitude |
+| fBodyAcc_MeanValue_X_axis | Mean of body acceleration signal in X direction (frequency domain via FFT) |
+| fBodyAcc_MeanValue_Y_axis | Mean of body acceleration signal in Y direction (frequency domain) |
+| fBodyAcc_MeanValue_Z_axis | Mean of body acceleration signal in Z direction (frequency domain) |
+| fBodyAcc_StdDev_X_axis | Standard deviation of body acceleration signal in X direction (frequency domain) |
+| fBodyAcc_StdDev_Y_axis | Standard deviation of body acceleration signal in Y direction (frequency domain) |
+| fBodyAcc_StdDev_Z_axis | Standard deviation of body acceleration signal in Z direction (frequency domain) |
+| fBodyAcc_MeanValueFreq_X_axis | Weighted average frequency of body acceleration in X direction |
+| fBodyAcc_MeanValueFreq_Y_axis | Weighted average frequency of body acceleration in Y direction |
+| fBodyAcc_MeanValueFreq_Z_axis | Weighted average frequency of body acceleration in Z direction |
+| fBodyAccJerk_MeanValue_X_axis | Mean of body acceleration Jerk signal in X direction (frequency domain) |
+| fBodyAccJerk_MeanValue_Y_axis | Mean of body acceleration Jerk signal in Y direction (frequency domain) |
+| fBodyAccJerk_MeanValue_Z_axis | Mean of body acceleration Jerk signal in Z direction (frequency domain) |
+| fBodyAccJerk_StdDev_X_axis | Standard deviation of body acceleration Jerk signal in X direction (frequency domain) |
+| fBodyAccJerk_StdDev_Y_axis | Standard deviation of body acceleration Jerk signal in Y direction (frequency domain) |
+| fBodyAccJerk_StdDev_Z_axis | Standard deviation of body acceleration Jerk signal in Z direction (frequency domain) |
+| fBodyAccJerk_MeanValueFreq_X_axis | Weighted average frequency of body acceleration Jerk in X direction |
+| fBodyAccJerk_MeanValueFreq_Y_axis | Weighted average frequency of body acceleration Jerk in Y direction |
+| fBodyAccJerk_MeanValueFreq_Z_axis | Weighted average frequency of body acceleration Jerk in Z direction |
+| fBodyGyro_MeanValue_X_axis | Mean of body angular velocity in X direction (frequency domain) |
+| fBodyGyro_MeanValue_Y_axis | Mean of body angular velocity in Y direction (frequency domain) |
+| fBodyGyro_MeanValue_Z_axis | Mean of body angular velocity in Z direction (frequency domain) |
+| fBodyGyro_StdDev_X_axis | Standard deviation of body angular velocity in X direction (frequency domain) |
+| fBodyGyro_StdDev_Y_axis | Standard deviation of body angular velocity in Y direction (frequency domain) |
+| fBodyGyro_StdDev_Z_axis | Standard deviation of body angular velocity in Z direction (frequency domain) |
+| fBodyGyro_MeanValueFreq_X_axis | Weighted average frequency of body angular velocity in X direction |
+| fBodyGyro_MeanValueFreq_Y_axis | Weighted average frequency of body angular velocity in Y direction |
+| fBodyGyro_MeanValueFreq_Z_axis | Weighted average frequency of body angular velocity in Z direction |
+| fBodyAccMag_MeanValue | Mean magnitude of body acceleration (frequency domain) |
+| fBodyAccMag_StdDev | Standard deviation of body acceleration magnitude (frequency domain) |
+| fBodyAccMag_MeanValueFreq | Weighted average frequency of body acceleration magnitude |
+| fBodyBodyAccJerkMag_MeanValue | Mean magnitude of body acceleration Jerk (frequency domain) |
+| fBodyBodyAccJerkMag_StdDev | Standard deviation of magnitude of body acceleration Jerk (frequency domain) |
+| fBodyBodyGyroMag_MeanValue | Mean magnitude of body gyroscope signal in the frequency domain (via FFT) |
+| fBodyBodyGyroMag_StdDev | Standard deviation of body gyroscope magnitude in the frequency domain |
+| fBodyBodyGyroMag_MeanValueFreq | Weighted average frequency of body gyroscope magnitude signal |
+| fBodyBodyGyroJerkMag_MeanValue | Mean magnitude of body gyroscope Jerk signal in the frequency domain |
+| fBodyBodyGyroJerkMag_StdDev | Standard deviation of body gy |
+
+## Final Output
+
+• File: clean_data.csv
+
+• Content: A tidy dataset with one row per subject–activity pair, and
+columns containing the average of each measurement.
+
+• Rows: 180 (30 subjects × 6 activities)
+
+• Columns: Subject ID, Activity Name, and averaged measurement
+variables.
