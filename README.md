@@ -64,7 +64,7 @@ clean_data.csv → Output tidy dataset (generated after running the script)
 
 ## Scripts Steps:
 
-(1) Merge datasets: Combine training and test sets.
-(2) Extract variables: Keep only measurements with mean or std.
-(3) Label activities: Replace numeric codes with descriptive names.
-(4) Rename variables: -Remove parentheses () -Replace mean → MeanValue -Replace std → StdDev -Replace - → \_ Append \_axis to variables ending in X/Y/Z -Create tidy dataset: Average each variable by subject and activity
+-  (1) Merge datasets: Combine training and test sets.
+-  (2) Extract variables: Keep only measurements with mean or std.
+-  (3) Label activities: Replace numeric codes with descriptive names.
+-  (4) Rename variables: -Remove parentheses () -Replace mean → MeanValue -Replace std → StdDev -Replace - → \_ Append \_axis to variables ending in X/Y/Z -Create tidy dataset: Average each variable by subject and activity
