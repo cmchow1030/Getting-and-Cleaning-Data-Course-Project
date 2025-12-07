@@ -3,7 +3,7 @@ title: "Cleaning and Tidying Human Activity Recognition Dataset"
 author: "CM Chow (Cherry)"
 date: "2025-12-04"
 purpose: "To merge training and test datasets, extract mean and standard deviation measurements, label activities descriptively, and create a tidy dataset with averages for each subject and activity."
-output: "clean_data.csv — tidy dataset with averages"
+output: "clean_data.txt — tidy dataset with averages"
 editor_options: 
   markdown: 
     wrap: 72
@@ -53,7 +53,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## 📘 Variable Descriptions
 
 | Variable | Description |
-|----|----|
+|------------------------------------|------------------------------------|
 | subject | Identifier for the person (integer ID) |
 | activity_name | Descriptive activity name (e.g., WALKING, STANDING, LAYING) |
 | tBodyAcc_MeanValue_X_axis | Mean of body acceleration signal in X direction (time domain, 50 Hz) |
@@ -136,7 +136,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Final Output
 
-• File: clean_data.csv
+• File: clean_data.txt
 
 • Content: A tidy dataset with one row per subject–activity pair, and
 columns containing the average of each measurement.

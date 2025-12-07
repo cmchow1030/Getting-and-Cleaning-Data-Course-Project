@@ -42,19 +42,35 @@ source("run_analysis.R")
 
 ## Outputs
 
-clean_data.csv: tidy dataset with averages col_name_list2.csv: variable names for codebook
+-   clean_data.txt: requested by the course
+
+    ``` r
+    write.table(averages, "clean_data.txt",  row.name=FALSE)
+    ```
+
+-   clean_data.csv: tidy dataset with averages
+
+    ``` r
+    write_csv(averages, "clean_data.csv")
+    ```
+
+-   col_name_list2.csv: variable names for codebook
+
+    ``` r
+    col_name_list <- names(averages)
+    write_csv(as.data.frame(col_name_list), "col_name_list2.csv")
+    ```
 
 ## Files Used:
 
--test/subject_test.txt: Subject IDs for test set 
--test/y_test.txt: Activity codes for test set 
--test/X_test.txt: Feature measurements for test set 
--train/subject_train.txt: Subject IDs for training set 
--train/y_train.txt: Activity codes for training set 
--train/X_train.txt: Feature measurements for training set 
--features.txt: List of feature names 
--activity_labels.txt: Mapping of activity codes to descriptive names
-
+-   test/subject_test.txt: Subject IDs for test set
+-   test/y_test.txt: Activity codes for test set
+-   test/X_test.txt: Feature measurements for test set
+-   train/subject_train.txt: Subject IDs for training set
+-   train/y_train.txt: Activity codes for training set
+-   train/X_train.txt: Feature measurements for training set
+-   features.txt: List of feature names
+-   activity_labels.txt: Mapping of activity codes to descriptive names
 
 ## Files in This Repo run_analysis.R → Main R script for data cleaning
 
@@ -64,7 +80,20 @@ clean_data.csv → Output tidy dataset (generated after running the script)
 
 ## Scripts Steps:
 
-(1) Merge datasets: Combine training and test sets.
-(2) Extract variables: Keep only measurements with mean or std.
-(3) Label activities: Replace numeric codes with descriptive names.
-(4) Rename variables: -Remove parentheses () -Replace mean → MeanValue -Replace std → StdDev -Replace - → \_ Append \_axis to variables ending in X/Y/Z -Create tidy dataset: Average each variable by subject and activity
+-   Merge datasets: Combine training and test sets.
+
+-   Extract variables: Keep only measurements with mean or std.
+
+-   Label activities: Replace numeric codes with descriptive names.
+
+-   Rename variables:
+
+    -   Remove parentheses ()
+
+    -   Replace mean → MeanValue
+
+    -   Replace std → StdDev
+
+    -   Replace - → \_ Append \_axis to variables ending in X/Y/Z
+
+    -   Create tidy dataset: Average each variable by subject and activity

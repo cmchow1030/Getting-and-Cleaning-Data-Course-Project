@@ -68,8 +68,11 @@ averages <- clean_t_data %>%
 ### 5. creates a second, independent tidy data set with the  ####
 ### average of each variable for each activity and each subject##
 
-# output the table of averages as a csv file using readr package in tidyverse
+# output the table of averages as a text file as instructed in the assignment guide
+write.table(averages, "clean_data.txt",  row.name=FALSE)
+# output the table of averages as a csv file using readr package in tidyverse for reference
 write_csv(averages, "clean_data.csv")
+
 # output column name list for the codebook
 col_name_list <- names(averages)
 write_csv(as.data.frame(col_name_list), "col_name_list2.csv")
