@@ -46,14 +46,11 @@ knitr::opts_chunk$set(echo = TRUE)
     o Append_axis to measurement variables ending with X/Y/Z
 
 5.  Create tidy dataset: Average each variable grouped by subject and
-    activity.
 
 ## Variable Descriptions
 
-## 📘 Variable Descriptions
-
 | Variable | Description |
-|------------------------------------|------------------------------------|
+|----|----|
 | subject | Identifier for the person (integer ID) |
 | activity_name | Descriptive activity name (e.g., WALKING, STANDING, LAYING) |
 | tBodyAcc_MeanValue_X_axis | Mean of body acceleration signal in X direction (time domain, 50 Hz) |
