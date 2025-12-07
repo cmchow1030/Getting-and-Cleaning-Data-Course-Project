@@ -15,24 +15,26 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Data Sources
 
-Files used: -test/subject_test.txt → Subject IDs for test set
--test/y_test.txt → Activity codes for test set -test/X_test.txt →
-Feature measurements for test set -train/subject_train.txt → Subject IDs
-for training set -train/y_train.txt → Activity codes for training set
--train/X_train.txt → Feature measurements for training set -features.txt
-→ List of feature names -activity_labels.txt → Mapping of activity codes
-to descriptive names
+Files used: 
+-  test/subject_test.txt → Subject IDs for test set
+-  test/y_test.txt → Activity codes for test set 
+-  test/X_test.txt →Feature measurements for test set 
+-  train/subject_train.txt → Subject IDs for training set 
+-  train/y_train.txt → Activity codes for training set
+-  train/X_train.txt → Feature measurements for training set 
+-  features.txt → List of feature names 
+-  activity_labels.txt → Mapping of activity codes to descriptive names
 
 ## Data Cleaning Steps
 
-1.  Merge datasets: Combine test and train sets into one dataset.
-2.  Extract variables: Keep only measurements with mean or std.
-3.  Add descriptive activity names: Replace numeric activity codes with
+-  1.  Merge datasets: Combine test and train sets into one dataset.
+-  2.  Extract variables: Keep only measurements with mean or std.
+-  3.  Add descriptive activity names: Replace numeric activity codes with
     labels (e.g., WALKING, SITTING).
-4.  Rename variables: o Remove parentheses () o Replace mean → MeanValue
+-  4.  Rename variables: o Remove parentheses () o Replace mean → MeanValue
     o Replace std → StdDev o Replace - → \_ o Append \_axis to
     measurement variables
-5.  Create tidy dataset: Average each variable grouped by subject and
+-  5.  Create tidy dataset: Average each variable grouped by subject and
     activity.
 
 ## Variable Descriptions
