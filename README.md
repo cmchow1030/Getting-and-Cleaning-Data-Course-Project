@@ -13,6 +13,10 @@ Getting and Cleaning Data Course Project: to prepare tidy data that can be used 
 
 This project processes the Human Activity Recognition Using Smartphones Dataset. It merges training and test sets, extracts mean and standard deviation measurements, applies descriptive activity names, and produces a tidy dataset with averages for each subject and activity.
 
+A full description is available at the site where the data was obtained:
+
+<http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones>
+
 GitHub repository: [cmchow1030/Getting-and-Cleaning-Data-Course-Project](https://github.com/cmchow1030/Getting-and-Cleaning-Data-Course-Project.git)
 
 ------------------------------------------------------------------------
