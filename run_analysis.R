@@ -30,7 +30,7 @@ s_data <-data[order(data$subject), ]
 ### standard deviation for each measurement. ##########
 
 #select columns with names containing "mean" or "std" but keep the first two columns
-ss_data <- s_data[ , grep("mean|std", names(s_data))]
+ss_data <- s_data[ , grep("mean\\(\\)|std\\(\\)", names(s_data))]
 sss_data<- cbind(s_data[c("subject", "activity")], ss_data) #sss_data<- cbind(s_data[ ,1:2], ss_data)
 
 ### 3. Uses descriptive activity names  ####

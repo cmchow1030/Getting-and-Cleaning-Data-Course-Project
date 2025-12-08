@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 1.  Merge datasets: Combine test and train sets into one dataset.
 
-2.  Extract variables: Keep only measurements with mean or std.
+2.  Extract variables: Keep only measurements with mean() or std().
 
 3.  Add descriptive activity names: Replace numeric activity codes with
     labels (e.g., WALKING, SITTING).
@@ -50,7 +50,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Variable Descriptions
 
 | Variable | Description |
-|----|----|
+|------------------------------------|------------------------------------|
 | subject | Identifier for the person (integer ID) |
 | activity_name | Descriptive activity name (e.g., WALKING, STANDING, LAYING) |
 | tBodyAcc_MeanValue_X_axis | Mean of body acceleration signal in X direction (time domain, 50 Hz) |
@@ -99,35 +99,24 @@ knitr::opts_chunk$set(echo = TRUE)
 | fBodyAcc_StdDev_X_axis | Standard deviation of body acceleration signal in X direction (frequency domain) |
 | fBodyAcc_StdDev_Y_axis | Standard deviation of body acceleration signal in Y direction (frequency domain) |
 | fBodyAcc_StdDev_Z_axis | Standard deviation of body acceleration signal in Z direction (frequency domain) |
-| fBodyAcc_MeanValueFreq_X_axis | Weighted average frequency of body acceleration in X direction |
-| fBodyAcc_MeanValueFreq_Y_axis | Weighted average frequency of body acceleration in Y direction |
-| fBodyAcc_MeanValueFreq_Z_axis | Weighted average frequency of body acceleration in Z direction |
 | fBodyAccJerk_MeanValue_X_axis | Mean of body acceleration Jerk signal in X direction (frequency domain) |
 | fBodyAccJerk_MeanValue_Y_axis | Mean of body acceleration Jerk signal in Y direction (frequency domain) |
 | fBodyAccJerk_MeanValue_Z_axis | Mean of body acceleration Jerk signal in Z direction (frequency domain) |
 | fBodyAccJerk_StdDev_X_axis | Standard deviation of body acceleration Jerk signal in X direction (frequency domain) |
 | fBodyAccJerk_StdDev_Y_axis | Standard deviation of body acceleration Jerk signal in Y direction (frequency domain) |
 | fBodyAccJerk_StdDev_Z_axis | Standard deviation of body acceleration Jerk signal in Z direction (frequency domain) |
-| fBodyAccJerk_MeanValueFreq_X_axis | Weighted average frequency of body acceleration Jerk in X direction |
-| fBodyAccJerk_MeanValueFreq_Y_axis | Weighted average frequency of body acceleration Jerk in Y direction |
-| fBodyAccJerk_MeanValueFreq_Z_axis | Weighted average frequency of body acceleration Jerk in Z direction |
 | fBodyGyro_MeanValue_X_axis | Mean of body angular velocity in X direction (frequency domain) |
 | fBodyGyro_MeanValue_Y_axis | Mean of body angular velocity in Y direction (frequency domain) |
 | fBodyGyro_MeanValue_Z_axis | Mean of body angular velocity in Z direction (frequency domain) |
 | fBodyGyro_StdDev_X_axis | Standard deviation of body angular velocity in X direction (frequency domain) |
 | fBodyGyro_StdDev_Y_axis | Standard deviation of body angular velocity in Y direction (frequency domain) |
 | fBodyGyro_StdDev_Z_axis | Standard deviation of body angular velocity in Z direction (frequency domain) |
-| fBodyGyro_MeanValueFreq_X_axis | Weighted average frequency of body angular velocity in X direction |
-| fBodyGyro_MeanValueFreq_Y_axis | Weighted average frequency of body angular velocity in Y direction |
-| fBodyGyro_MeanValueFreq_Z_axis | Weighted average frequency of body angular velocity in Z direction |
 | fBodyAccMag_MeanValue | Mean magnitude of body acceleration (frequency domain) |
 | fBodyAccMag_StdDev | Standard deviation of body acceleration magnitude (frequency domain) |
-| fBodyAccMag_MeanValueFreq | Weighted average frequency of body acceleration magnitude |
 | fBodyBodyAccJerkMag_MeanValue | Mean magnitude of body acceleration Jerk (frequency domain) |
 | fBodyBodyAccJerkMag_StdDev | Standard deviation of magnitude of body acceleration Jerk (frequency domain) |
 | fBodyBodyGyroMag_MeanValue | Mean magnitude of body gyroscope signal in the frequency domain (via FFT) |
 | fBodyBodyGyroMag_StdDev | Standard deviation of body gyroscope magnitude in the frequency domain |
-| fBodyBodyGyroMag_MeanValueFreq | Weighted average frequency of body gyroscope magnitude signal |
 | fBodyBodyGyroJerkMag_MeanValue | Mean magnitude of body gyroscope Jerk signal in the frequency domain |
 | fBodyBodyGyroJerkMag_StdDev | Standard deviation of body gy |
 
